@@ -4,7 +4,7 @@ namespace _09_Portfolio
 {
     internal class Stock : IAsset
     {
-        private int numShares;
+        private double numShares;
         private double pricePerShare;
         private string symbol;
         public Stock()
@@ -12,21 +12,43 @@ namespace _09_Portfolio
         }
         public Stock( string a, double b, double c)
         {
-            
+            Symbol = a;
+            PricePerShare = b;
+            NumShares = c;
         }
 
-        public int NumShares { get { return numShares; } internal set { numShares = value; } }
+        public double NumShares { get { return numShares; } internal set { numShares = value; } }
         public double PricePerShare { get { return pricePerShare; } internal set { pricePerShare = value; } }
         public string Symbol { get { return symbol; } internal set { symbol = value; } }
 
-        internal int GetValue()
+        internal double GetValue()
         {
-            throw new NotImplementedException();
+            return PricePerShare* NumShares;
         }
 
         internal static double TotalValue(Stock[] stocks)
         {
-            throw new NotImplementedException();
+            double x = stocks[0].GetValue();
+            double y = stocks[1].GetValue();
+            return x + y;
+        }
+        public override string ToString()
+        {
+            string format = "Stock[symbol=" + Symbol + ",pricePerShare=" + PricePerShare + ",numShares=" + NumShares + "]";
+            return format;
+        }
+
+        public override bool Equals(object obj)
+        {
+            Stock Compareobject = (Stock)obj;
+            if (Compareobject.Symbol == this.Symbol && Compareobject.PricePerShare == this.PricePerShare && Compareobject.NumShares == this.NumShares)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

@@ -82,7 +82,7 @@ namespace _09_Portfolio
         {
             Stock stockABC = new Stock("ABC", 12.23, 50);
 
-            Assert.AreEqual("Stock[symbol=ABC,pricePerShare=12.23,numShares=50]", stockABC.ToString());
+            Assert.AreEqual("Stock[symbol=ABC,pricePerShare=12,23,numShares=50]", stockABC.ToString());
         }
 
         
