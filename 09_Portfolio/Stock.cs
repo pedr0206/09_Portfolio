@@ -50,5 +50,10 @@ namespace _09_Portfolio
                 return false;
             }
         }
+
+        internal static object TotalValue(IAsset[] portfolio)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
