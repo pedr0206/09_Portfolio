@@ -21,16 +21,25 @@ namespace _09_Portfolio
         public double PricePerShare { get { return pricePerShare; } internal set { pricePerShare = value; } }
         public string Symbol { get { return symbol; } internal set { symbol = value; } }
 
-        internal double GetValue()
+        public double GetValue()
         {
             return PricePerShare* NumShares;
         }
 
-        internal static double TotalValue(Stock[] stocks)
+        internal static double TotalValue(IAsset [] stocks)
         {
-            double x = stocks[0].GetValue();
-            double y = stocks[1].GetValue();
-            return x + y;
+            double finalvalue = 0;
+            foreach ( IAsset Stock in stocks)
+            {
+                finalvalue = finalvalue + Stock.GetValue(); 
+
+            }
+
+            return finalvalue;
+
+            //double x = stocks[0].GetValue();
+            //double y = stocks[1].GetValue();
+            //return x + y;
         }
         public override string ToString()
         {
@@ -51,9 +60,6 @@ namespace _09_Portfolio
             }
         }
 
-        internal static object TotalValue(IAsset[] portfolio)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

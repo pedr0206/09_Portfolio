@@ -26,7 +26,7 @@ namespace _09_Portfolio
             InterestRate = v3;
         }
 
-        internal double GetValue()
+        public double GetValue()
         {
             return Value;
         }
